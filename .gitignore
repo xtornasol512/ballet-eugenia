@@ -1,0 +1,6 @@
+*.pyc
+*~
+temp/
+node_modules/
+*.sh
+
