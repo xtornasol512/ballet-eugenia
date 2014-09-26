@@ -1,0 +1,17 @@
+Lista de avisos
+<br>
+{%if aviso%}
+Detalle de la aviso {{aviso.titulo}}
+{%else%}
+Aviso no encontrada
+{%endif%}
+<br>
+{%if aviso%}
+        titulo: {{aviso.titulo}}<br>
+        contenido: {{aviso.contenido}}<br>
+        imagen: {{aviso.imagen}}<br>
+        tags: {{aviso.tags}}<br>
+        url amigable: {{url}}<br><br><br>
+{%else%}
+No se encontraron resultados
+{%endif%}

@@ -1,0 +1,17 @@
+Lista de posts
+<br>
+{%if post%}
+Detalle de la post {{post.titulo}}
+{%else%}
+Post no encontrada
+{%endif%}
+<br>
+{%if post%}
+        titulo: {{post.titulo}}<br>
+        contenido: {{post.contenido}}<br>
+        imagen: {{post.imagen}}<br>
+        tags: {{post.tags}}<br>
+        url amigable: {{url}}<br><br><br>
+{%else%}
+No se encontraron resultados
+{%endif%}

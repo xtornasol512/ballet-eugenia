@@ -14,8 +14,7 @@ def index_view(request):
     #La iteracion es un compusto de las urls y la palabra.
     palabras=UrlPalabra.objects.all()
     pagina = request.GET.get("pagina", "")
-    if palabras:
-        palabras = Paginador(palabras, maximo_paginas, pagina)
+    palabras = Paginador(palabras, maximo_paginas, pagina)
     cxt = {'palabras':palabras, 'filtro':False}
 
     return render_to_response('diccionario/listaPalabras.html',
@@ -39,8 +38,7 @@ def palabra(request, palabra):
 def tag_palabra(request, tag):
     palabras=UrlPalabra.objects.filter(palabra__tags__tag__icontains=tag)
     pagina = request.GET.get("pagina", "")
-    if palabras:
-        palabras = Paginador(palabras, maximo_paginas, pagina)
+    palabras = Paginador(palabras, maximo_paginas, pagina)
     cxt = {'palabras':palabras, 'filtro':True, 'tag':tag}
 
     return render_to_response('diccionario/listaPalabras.html',
@@ -53,8 +51,7 @@ def busqueda_palabra(request):
     if tag:
         palabras=UrlPalabra.objects.filter(palabra__tags__tag__icontains=tag)
         pagina = request.GET.get("pagina", "")
-        if palabras:
-            palabras = Paginador(palabras, maximo_paginas, pagina)
+        palabras = Paginador(palabras, maximo_paginas, pagina)
     cxt = {'palabras':palabras, 'filtro':True, 'tag':tag}
 
     return render_to_response('diccionario/listaPalabras.html',
