@@ -3,4 +3,5 @@
 temp/
 node_modules/
 *.sh
-
+front-end/temp/
+*.sh
