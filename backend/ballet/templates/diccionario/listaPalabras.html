@@ -1,0 +1,19 @@
+Lista de palabras
+<br>
+{%if filtro%}
+Esto es un filtro de palabras por tag {{tag}}
+{%else%}
+Lista completa de palabras
+{%endif%}
+<br>
+{%if palabras%}
+    {%for palabra in palabras%}
+        titulo: {{palabra.palabra.titulo}}<br>
+        contenido: {{palabra.palabra.contenido}}<br>
+        imagen: {{palabra.palabra.imagen}}<br>
+        tags: {{palabra.palabra.tags}}<br>
+        url amigable: {{palabra.url}}<br><br><br>
+    {%endfor%}
+{%else%}
+No se encontraron resultados
+{%endif%}
