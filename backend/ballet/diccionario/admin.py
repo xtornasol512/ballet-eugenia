@@ -8,5 +8,6 @@ class AdminPalabra(SummernoteModelAdmin):
 
 
 admin.site.register(Palabra, AdminPalabra)
-admin.site.register(UrlPalabra)
+#el URL palabra es la relacion de urls amigables, por lo que no deve ser editable
+#admin.site.register(UrlPalabra)
 admin.site.register(Tag)

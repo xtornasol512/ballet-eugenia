@@ -11,9 +11,21 @@ Lista completa de palabras
         titulo: {{palabra.palabra.titulo}}<br>
         contenido: {{palabra.palabra.contenido}}<br>
         imagen: {{palabra.palabra.imagen}}<br>
-        tags: {{palabra.palabra.tags}}<br>
+        tags: 
+        {%for tag in palabra.palabra.tags.all%}
+        {{tag}},
+        {%endfor%}<br>
         url amigable: {{palabra.url}}<br><br><br>
     {%endfor%}
+
+    {%if palabras.has_previous%}
+    pagina anterio:{{palabras.has_previous}}<br>
+    {%endif%}
+    pagina actual:{{palabras.number}}<br>
+    {%if palabras.has_next%}
+    pagina siguiente: {{palabras.has_next}}<br>
+    {%endif%}
+    numero de paginas: {{palabras.paginator.num_pages}}
 {%else%}
 No se encontraron resultados
 {%endif%}
