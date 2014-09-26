@@ -1,0 +1,17 @@
+Lista de palabras
+<br>
+{%if palabra%}
+Detalle de la palabra {{palabra.titulo}}
+{%else%}
+Palabra no encontrada
+{%endif%}
+<br>
+{%if palabra%}
+        titulo: {{palabra.titulo}}<br>
+        contenido: {{palabra.contenido}}<br>
+        imagen: {{palabra.imagen}}<br>
+        tags: {{palabra.tags}}<br>
+        url amigable: {{url}}<br><br><br>
+{%else%}
+No se encontraron resultados
+{%endif%}
