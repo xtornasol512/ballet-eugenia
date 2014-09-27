@@ -1,0 +1,31 @@
+Lista de avisos
+<br>
+{%if filtro%}
+Esto es un filtro de avisos por tag {{tag}}
+{%else%}
+Lista completa de avisos
+{%endif%}
+<br>
+{%if avisos%}
+    {%for aviso in avisos%}
+        titulo: {{aviso.aviso.titulo}}<br>
+        contenido: {{aviso.aviso.contenido}}<br>
+        imagen: {{aviso.aviso.imagen}}<br>
+        tags: 
+        {%for tag in aviso.aviso.tags.all%}
+        {{tag}},
+        {%endfor%}<br>
+        url amigable: {{aviso.url}}<br><br><br>
+    {%endfor%}
+
+    {%if avisos.has_previous%}
+    pagina anterio:{{avisos.has_previous}}<br>
+    {%endif%}
+    pagina actual:{{avisos.number}}<br>
+    {%if avisos.has_next%}
+    pagina siguiente: {{avisos.has_next}}<br>
+    {%endif%}
+    numero de paginas: {{avisos.paginator.num_pages}}
+{%else%}
+No se encontraron resultados
+{%endif%}

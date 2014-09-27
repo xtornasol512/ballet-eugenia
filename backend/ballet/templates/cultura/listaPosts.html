@@ -1,0 +1,31 @@
+Lista de posts
+<br>
+{%if filtro%}
+Esto es un filtro de posts por tag {{tag}}
+{%else%}
+Lista completa de posts
+{%endif%}
+<br>
+{%if posts%}
+    {%for post in posts%}
+        titulo: {{post.post.titulo}}<br>
+        contenido: {{post.post.contenido}}<br>
+        imagen: {{post.post.imagen}}<br>
+        tags: 
+        {%for tag in post.post.tags.all%}
+        {{tag}},
+        {%endfor%}<br>
+        url amigable: {{post.url}}<br><br><br>
+    {%endfor%}
+
+    {%if posts.has_previous%}
+    pagina anterio:{{posts.has_previous}}<br>
+    {%endif%}
+    pagina actual:{{posts.number}}<br>
+    {%if posts.has_next%}
+    pagina siguiente: {{posts.has_next}}<br>
+    {%endif%}
+    numero de paginas: {{posts.paginator.num_pages}}
+{%else%}
+No se encontraron resultados
+{%endif%}
