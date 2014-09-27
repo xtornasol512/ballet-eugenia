@@ -10,7 +10,7 @@ urlpatterns = patterns('',
 
     url(r'^dashboard/', include(admin.site.urls)),
     url(r'^summernote/', include('django_summernote.urls')),
-    #url(r'^',include('home.urls')),
+    url(r'^',include('home.urls')),
     #url(r'^perfiles/',include('perfiles.urls')),
     url(r'^diccionario/',include('diccionario.urls')),
     url(r'^cultura/',include('cultura.urls')),

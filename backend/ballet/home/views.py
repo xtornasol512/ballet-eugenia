@@ -6,18 +6,21 @@ from django.http import HttpResponseRedirect
 from django.http import HttpResponsePermanentRedirect as redirect301
 
 def index_view(request):
-    cxt = {}
-
     return render_to_response('home/index.html',
-                          cxt,
                           context_instance=RequestContext(request))
-#Privacidad
+
 def missgennyta(request):
-    return render_to_response('privacidad/terminos_privacidad.html',
-                          my_data_dict,
+    return render_to_response('home/missgennyta.html',
                           context_instance=RequestContext(request))
 
+def contacto(request):
+    return render_to_response('home/contacto.html',
+                          context_instance=RequestContext(request))
 
-    contacto
-    reglamento
-    login
+def reglamento(request):
+    return render_to_response('home/reglamento.html',
+                          context_instance=RequestContext(request))
+
+def login(request):
+    return render_to_response('home/login.html',
+                          context_instance=RequestContext(request))
