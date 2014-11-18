@@ -1,31 +1,220 @@
-Lista de palabras
-<br>
-{%if filtro%}
-Esto es un filtro de palabras por tag {{tag}}
-{%else%}
-Lista completa de palabras
-{%endif%}
-<br>
-{%if palabras%}
-    {%for palabra in palabras%}
-        titulo: {{palabra.palabra.titulo}}<br>
-        contenido: {{palabra.palabra.contenido}}<br>
-        imagen: {{palabra.palabra.imagen}}<br>
-        tags: 
-        {%for tag in palabra.palabra.tags.all%}
-        {{tag}},
-        {%endfor%}<br>
-        url amigable: {{palabra.url}}<br><br><br>
-    {%endfor%}
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diccionario de Ballet</title>
+    <!-- SEO and Facebook Atributos-->
+    <meta name="description" content="Glosario y Diccionario de Ballet, una compilación para principiantes y avanzados en el tema." />
+    <meta name="keywords" content="Movimientos, Ballet, Danza, Diccionario, Glosario, Tehuacan, Cultura" />
+    <meta name="author" content="https://plus.google.com/+BalletEugenia" />  
+    <link rel="canonical" href="http://ballet-eugenia.com/diccionario" />
+    <meta property="fb:app_id" content="504922086287468" />
+    <meta property="og:type" content="website" /> 
+    <meta property="og:title" content="Diccionario de Ballet" />
+    <meta property="og:description" content="Glosario y Diccionario de Ballet, una compilación para principiantes y avanzados en el tema." />
+    <meta property="og:image" content="{{STATIC_URL}}img/fb_img/diccionario_01.jpg" />
+    <!-- Fin de SEO y Facebook atributos-->
+    <!-- Estilos y preconfigs -->
+    <link rel="stylesheet" href="{{STATIC_URL}}css/foundation.css" >
+    <link rel="stylesheet" href="{{STATIC_URL}}css/foundation-icons.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}css/animate.css" >
+    <script src="{{STATIC_URL}}js/vendor/modernizr.js"></script>
 
-    {%if palabras.has_previous%}
-    pagina anterio:{{palabras.has_previous}}<br>
-    {%endif%}
-    pagina actual:{{palabras.number}}<br>
-    {%if palabras.has_next%}
-    pagina siguiente: {{palabras.has_next}}<br>
-    {%endif%}
-    numero de paginas: {{palabras.paginator.num_pages}}
-{%else%}
-No se encontraron resultados
-{%endif%}
+    <!-- Favicons y Directivas para AppChrome -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="apple-touch-startup-image" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" href="{{STATIC_URL}}img/fb_img/home_01.jpg" />
+    <link rel="shortcut icon" href="{{STATIC_URL}}img/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{STATIC_URL}}img/icons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{STATIC_URL}}img/icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{STATIC_URL}}img/icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{STATIC_URL}}img/icons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{STATIC_URL}}img/icons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{STATIC_URL}}img/icons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{STATIC_URL}}img/icons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{STATIC_URL}}img/icons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{STATIC_URL}}img/icons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="{{STATIC_URL}}img/icons/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="{{STATIC_URL}}img/icons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="{{STATIC_URL}}img/icons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="{{STATIC_URL}}img/icons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="{{STATIC_URL}}img/icons/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#efefef">
+    <meta name="msapplication-TileImage" content="{{STATIC_URL}}img/icons/mstile-144x144.png">
+    <meta name="msapplication-config" content="{{STATIC_URL}}img/icons/browserconfig.xml">
+    <!-- End Favicons-->
+  </head>
+  <body>
+    <!-- Fb-SDK -->
+    <!-- EndFb-SDK -->
+    <!-- NAV -->
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">Diccionario de Ballet</a></h1>
+        </li>
+         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li class="active"><a href="{{STATIC_URL}}templates/contacto.html">Contacto</a></li>
+          <li><a href="{{STATIC_URL}}templates/culturalBlog.html">Blog Cultural</a></li>
+          
+          <li class="has-dropdown">
+            <a href="">Menu</a>
+            <ul class="dropdown">
+              <li><a href="{{STATIC_URL}}templates/perfiles.html">Perfiles</a></li>
+              <li><a href="{{STATIC_URL}}templates/login.html">Login</a></li>
+              <li><a href="{{STATIC_URL}}templates/reglamento.html">Reglamento</a></li>
+              <li><a href="{{STATIC_URL}}templates/academia.html">Academia</a></li>
+              <li><a href="{{STATIC_URL}}templates/missGenita.html">Miss Genita</a></li>
+              <li><a href="{{STATIC_URL}}templates/calendario.html">Calendario</a></li>
+              <li><a href="{{STATIC_URL}}templates/diccionario.html">Diccionario</a></li>
+              
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </nav>
+    <!-- EndNAv-->
+    <!-- Header-->
+    <header>
+      <div class="row">
+        <div class="small-12 centered columns text-center">
+          <h1>Diccionario de Ballet</h1>
+          <h4>Movimientos, Giros, Palabras de Ballet y mucho más. </h4>
+            {%if filtro%}
+            <p>Resultados de la busqueda {{tag}}: <strong>{{NumdePalabras}}</strong></p>
+            {%else%}
+            <p>Número de Palabras: <strong>{{NumdePalabras}}</strong></p>
+            {%endif%}
+        </div>
+      </div>
+    </header>
+    <!-- EndHeader-->
+    <!-- Contenido-->
+    <section>
+      <aside class="row busqueda">
+        <div class="small-12 medium-8 medium-centered columns text-center">
+          <form action="/diccionario/tag/"  name="Busqueda">
+            <input type="text" name="tagName" placeholder="Busca la palabra o tag" required>
+            <button class="tiny">Buscar</button>
+          </form>
+        </div>
+        
+      </aside>
+
+        {%if palabras%}
+      <section class="row">
+        {%for palabra in palabras%}
+        <div class="small-12 medium-6 large-4 columns Keyword">
+          <a href="/diccionario/{{palabra.url}}/"><img class="th" src="{{MEDIA_URL}}/{{palabra.palabra.imagen}}" alt="{{palabra.palabra.titulo}}"></a>
+        <div style="max-height: 218px;overflow: hidden;">
+          <h2><a href="/diccionario/{{palabra.url}}/">{{palabra.palabra.titulo}}</a></h2>
+          {{palabra.palabra.contenido|safe}}
+        </div>
+          <p>Tags: {%for tag in palabra.palabra.tags.all%}
+            <a href="/diccionario/tag/{{tag}}">{{tag}}</a>,
+            {%endfor%}
+          <p><a href="/diccionario/{{palabra.url}}/" class="button">Mas detalles de: {{palabra.palabra.titulo}}</a></p>
+        </div>
+        {%endfor%}
+      </section>
+      <section class="row">
+            <div class="small-6 columns Keyword">
+            {%if palabras.has_previous%}
+                <h4><a href="/diccionario/?pagina={{palabras.previous_page_number}} "><span class="fi-sheriff-badge large"></span>Anterior</h4></a>
+            {%endif%}
+            </div>
+            <div class="small-6 columns Keyword text-right">
+            {%if palabras.has_next%}
+                <h4><a href="/diccionario/?pagina={{palabras.next_page_number}} ">Siguiente<span class="fi-sheriff-badge large"></span></h4></a>
+            {%else%}
+                <h4>Siguiente<span class="fi-sheriff-badge large"></span></h4>
+            {%endif%}
+            </div>
+        </section>
+        {%else%}
+        {%endif%}
+      
+
+    </section>
+    <!-- EndContenido-->
+    <!-- Footer-->
+    <footer>
+      <article id="newsletter" class="row">
+        <div class="small-centered large-8 columns text-center">
+          <div class="has-form">
+          <div class="row collapse">
+            <div class="large-8 small-9 columns">
+              <input type="text" placeholder="Tu email aquí">
+            </div>
+            <div class="large-4 small-3 columns">
+              <a href="#" class="alert button expand">Newsletter Cultural</a>
+            </div>
+          </div>
+        </div>
+        </div>
+        
+      </article>
+      <article id="foo" class="row">
+        <div class="small-12 columns text-center">
+          <h3 class="text-center">Contactanos</h3>
+            <p>Más información, sugerencias o comentarios haznoslos saber en</p>
+            <p>Nuestro email: <a href="mailto:genny@ballet-eugenia.com">genny@ballet-eugenia.com</a></p>
+            <p>Estamos en la 1 Oriente #520 Colonia Centro, Tehuacán,Pue.</p>
+            <p><button>CONTACTO</button></p>
+        </div>
+      </article>
+      <article id="end" class="row">
+        <div class="small-12 columns text-center">
+        <h3>Mapa de Sitio</h3>
+        
+          <a href="#">Academia</a>
+          <a href="#">Login</a>
+          <a href="#">Cultura</a>  
+          <a href="#">Diccionario</a>
+          <a href="#">Reglamento</a>                  
+          <a href="#">Calendario</a>
+          
+        </div>
+        <div class="small-12 columns text-center ">
+          <br />
+          <h4>Academia de Ballet Eugenia 2014</h4>
+          <q>La Danza Expresión del Espiritu</q>
+          <p></p>
+        </div>
+        
+      </article>
+
+      
+    </footer>
+    <!-- EndFooter-->
+
+    
+    <script src="{{STATIC_URL}}js/vendor/jquery.js"></script>
+    <script src="{{STATIC_URL}}js/vendor/fastclick.js"></script>
+    <script src="{{STATIC_URL}}js/foundation.min.js"></script>
+    <script src="{{STATIC_URL}}js/vendor/jquery.cookie.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+    <!-- Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-53943904-1', 'auto');
+      ga('require', 'displayfeatures');
+      ga('require', 'linkid', 'linkid.js');
+      ga('send', 'pageview');
+
+    </script>
+    <!-- EndAnalytics -->
+  </body>
+</html>
