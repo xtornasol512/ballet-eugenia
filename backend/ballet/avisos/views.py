@@ -5,7 +5,7 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.http import HttpResponsePermanentRedirect as redirect301
 from avisos.models import UrlAviso, Aviso
-from actions import Paginador
+from actions import Paginador, Archivador
 
 maximo_paginas=20
 
@@ -17,7 +17,7 @@ def index_view(request):
     if avisos:
       avisos = Paginador(avisos, maximo_paginas, pagina)
     cxt = {'avisos':avisos, 'filtro':False}
-
+    Archivador('avisos/listaAvisos.html', 'avisos_index', cxt)
     return render_to_response('avisos/listaAvisos.html',
                           cxt,
                           context_instance=RequestContext(request))
