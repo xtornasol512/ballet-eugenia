@@ -1,0 +1,81 @@
+@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700");
+body, h1, h2, h3, h4, h5, p{
+    font-weight:400;
+}
+.nav-movil{
+    font-weight: 900;
+    margin-bottom: 0;
+}
+.button{
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.padding-logo{
+    padding-top: .7em;
+}
+.mr{
+    margin-right: 10px;
+}
+#menu-movil li{
+    padding-bottom: 10px;
+    font-weight: 900;
+}
+.bg-white{
+    background-color: rgba(255,255,255,1);
+}
+.inline{
+    display: inline;
+}
+.nav-menu{
+    margin-top: 10px;
+    font-weight: 900;
+    font-size: 2em;
+    transition: all 1s ease;
+}
+.nav-menu:hover{
+    color: rgba(100,100,100,0.8);
+}
+.orange:hover{
+    color: #E76914;
+}
+.blue:hover{
+    color: #2ba6cb;
+}
+.green:hover{
+    color: #43ac6a;
+}
+.yellow:hover{
+    color: #FFD800;
+}
+.small{
+    font-size: 1em;
+    margin-right: .4em;
+}
+.tBold{
+    font-weight: normal;
+}
+
+.medium{
+    font-size: 2em;
+}
+.socialMedia{
+    font-size: 1.2em;
+    -webkit-transition: all .5s ease;
+    transition:all .5s ease;
+}
+.socialMedia:hover{
+    font-size: 1.5em;
+}
+.large{
+    font-size: 4em;
+}
+.menu-padding{
+    padding-top: 1em;
+    padding-bottom: .1em;
+}
+.padding-top{
+    padding-top: 2.5em;
+}
+.mli{
+    margin-left: .4em;
+}

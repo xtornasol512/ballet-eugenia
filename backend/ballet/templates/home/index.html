@@ -1,1 +1,37 @@
-inicio
+{% extends "block/base.html" %}
+
+{% block contenido %}
+
+    <header class="padding-top">
+      <div class="row padding-top">
+        <div class="small-12 centered columns text-center">
+          <h1>Academia de Ballet Eugenia</h1>
+          <h4>La Danza Expresión del Espiritu</h4>
+          <h4>Conoce</h4><a class="button" href="#">Nuestro blog Cultural</a>
+        </div>
+      </div>
+    </header>
+<section>
+  <section id="Academia" class="row">
+    <div class="small-12 columns">
+      <h2>Quienes somos</h2>
+      <p>En la Academia de Ballet Eugenia, damos oportunidad a la juventud de conocer y disfrutar de la danza, y expresar a través de ella sus anhelos y sentimientos.</p>
+      <p><a href="{{STATIC_URL}}academia.html" class="button"> Más sobre la Academia</a></p>
+    </div>
+
+  </section>
+  <section id="Mision" class="row">
+    <div class="small-12 columns">
+      <h2>Experiencia</h2>
+      <p>Esta academia fue fundada hace más de 40 años con el fin de brindar a los jóvenes la oportunidad de desarrollar, a través de la danza, el gusto por el arte, y así mismo la practica de valores como la puntualidad, responsabilidad, compañerismo y disciplina entre otros.</p>
+      <p>A travez de los años Maria Eugenia Gamboa llamada por sus alumnos y conocidos <q>Miss Gennyta</q> ha llevado a muchas jovencitas y jovenes por el camino del Arte y la Danza.</p>
+      <p><a href="{{STATIC_URL}}missGennyta.html" class="button"> Más sobre Miss Gennyta</a></p>
+    </div>
+  </section>
+  <section id="Galerias" class="row">
+
+  </section>
+</section>
+{% endblock contenido %}
+
+

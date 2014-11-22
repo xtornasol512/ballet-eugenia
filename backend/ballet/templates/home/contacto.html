@@ -1,1 +1,77 @@
-contacto
+{% extends "block/base.html" %}
+{% block contenido %}
+    <header>
+      <div class="row">
+        <div class="small-12 centered columns text-center">
+          <h1>Ponte en Contacto</h1>
+          <h4>Nuestra dirección 1 Oriente #104 Altos Colonia Centro, Tehuacán,Pue.</h4>
+          <p>Telefono: <a href="tel:2381627774">2381627774</a></p>
+          <p>Email: genny@ballet-eugenia.com</p>
+        </div>
+      </div>
+    </header>
+    <!-- EndHeader-->
+    <!-- Contenido-->
+    <section>
+      
+      <section class="row">
+        <div class="small-12 centered columns text-center">
+          <form action="">
+            <fieldset>
+              <legend>Academia de Ballet Eugenia</legend>
+              <div class="row">
+                <div class="large-10 large-centered columns">
+                  <img src="/img/login/logo_login.png" alt="Área Especial para Alumnas de la Academia de Ballet Eugenia">
+                  <h2>Haznos saber tus dudas</h2>
+                </div>
+                <div class="large-12 columns">
+                <label class="text-left">Nombre
+                    <input type="text" name="nombre" placeholder="Pon aquí tu nombre " />
+                  </label> 
+                  <label class="text-left">Email
+                    <input type="email" name="email" placeholder="Ej. tuemail@gmail.com" />
+                  </label>
+                  <label>Qué deseas comentarnos
+                    <select>
+                      <option value="suscripcion">Interesado en Suscripcion</option>
+                      <option value="duda">Duda</option>
+                      <option value="comentario">Comentario</option>
+                      <option value="sugerencia">Sugerencia</option>
+                      <option value="login">Datos para el Login</option>
+                    </select>
+                    
+                  </label>
+                  <label class="text-left">Escribenos
+                    <textarea type="text" name="name" placeholder="Aqui pon tu duda, comentario o sugerencia" ></textarea>
+                  </label>
+                </div>
+                <div class="small-6 columns text-center">
+                  <button name="envComentario" class="expand ">Entrar</button>
+                </div>
+                <div class="small-6 columns text-center">
+                  <a href="/" name="envComentario" class="button expand success">Volver</a>
+                </div>
+                <p>Si olvidaste tu password o esta incorrecto tu email, ponte en contacto con <a href="/templates/contacto.html">genny@ballet-eugenia.com</a></p>
+
+              </div>
+            </fieldset>
+            
+          </form>
+        </div>
+        
+      </section>
+      
+      <section class="row">
+        <div class="small-6 columns Keyword">
+          #MAPA
+        </div>
+        <div class="small-6 columns">
+          <div class="panel callout radius">
+          <p>Encuentranos en  <a href="/GoogleMaps"><i class="fi-marker icon-large"></i>Google Maps</a></p>
+        </div>
+        </div>
+
+        </section>
+    </section>
+    <!-- EndContenido--> 
+{% endblock contenido %}

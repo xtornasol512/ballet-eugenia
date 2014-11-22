@@ -1,17 +1,71 @@
-Lista de palabras
-<br>
+{% extends "block/base.html" %}
+{% block contenido %}
 {%if palabra%}
-Detalle de la palabra {{palabra.titulo}}
-{%else%}
-Palabra no encontrada
-{%endif%}
-<br>
-{%if palabra%}
-        titulo: {{palabra.titulo}}<br>
-        contenido: {{palabra.contenido}}<br>
-        imagen: {{palabra.imagen}}<br>
-        tags: {{palabra.tags}}<br>
-        url amigable: {{url}}<br><br><br>
-{%else%}
-No se encontraron resultados
-{%endif%}
+    <header>
+      <div class="row">
+        <div class="small-12 centered columns text-center">
+          <h1>{{palabra.titulo}}</h1>
+          <h4>Tags: {%for tag in palabra.tags.all%}
+                    <a href="/diccionario/tag/{{tag}}">{{tag}}</a>,
+                    {%endfor%}
+            </h4>
+        </div>
+      </div>
+    </header>
+    <!-- EndHeader-->
+    <!-- Contenido-->
+    
+    <section>
+      <aside class="row busqueda">
+        <div class="small-12 medium-8 medium-centered columns text-center">
+          <form action="" name="Busqueda">
+            <input type="text" name="tagName" placeholder="Busca la palabra o tag" required>
+            <button class="tiny">Buscar</button>
+          </form>
+        </div>
+        
+      </aside>
+      <section class="row">
+        <article class="small-12 large-10 large-centered columns Keyword">
+
+          <h2>{{palabra.titulo}}</h2>
+          {{palabra.contenido|safe}}
+          <p class="text-center"><img src="{{MEDIA_URL}}{{palabra.imagen}}" alt="Imagen de {{palabra.titulo}}"></p>
+          <p> {%for tag in palabra.tags.all%}
+            <a href="/diccionario/tag/{{tag}}">{{tag}}</a>,
+          {%endfor%}</p>
+        </article>
+        
+        
+      </section>
+      <aside class="row">
+            <div class="small-12 columns text-center"> <h4>Compartelo en tus Redes Sociales</h4></div>
+            
+        </aside>
+        <section class="row">
+            <div class="small-6 medium-3 columns text-center">
+              <button class="expand">Facebook</button>
+            </div>
+            <div class="small-6 medium-3 columns text-center">
+              <button class="expand">Twitter</button>
+            </div>
+            <div class="small-6 medium-3 columns text-center">
+              <button class="expand">Google+</button>
+            </div>
+            <div class="small-6 medium-3 columns text-center">
+              <button class="expand">Copy Link</button>
+            </div>
+            
+          </section>
+      <section class="row">
+            <div class="small-6 columns Keyword">
+                <a class="" href="#before"><h4><span class="fi-sheriff-badge large"></span>Anterior</h4></a>
+            </div>
+            <div class="small-6 columns Keyword text-right">
+                <a class="" href="#next"><h4>Siguiente<span class="fi-sheriff-badge large"></span></h4></a>
+            </div>
+        </section>
+    </section>
+    {%endif%}
+    
+{% endblock contenido %}
