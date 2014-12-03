@@ -1,7 +1,7 @@
 {% extends "block/base.html" %}
 {% block contenido %}
-<header>
-  <div class="row">
+<header class="padding-top">
+  <div class="row padding-top">
     <div class="small-12 centered columns text-center">
       <h1>Diccionario de Ballet</h1>
       <h4>Movimientos, Giros, Palabras de Ballet y mucho más. </h4>
@@ -45,14 +45,14 @@
     <section class="row">
       <div class="small-6 columns Keyword">
         {%if palabras.has_previous%}
-        <h4><a href="/diccionario/?pagina={{palabras.previous_page_number}} "><span class="fi-sheriff-badge large"></span>Anterior</h4></a>
+        <h4><a href="/diccionario/?pagina={{palabras.previous_page_number}} "><span class="fi-arrow-left large"></span>Anterior</h4></a>
         {%endif%}
       </div>
       <div class="small-6 columns Keyword text-right">
         {%if palabras.has_next%}
-        <h4><a href="/diccionario/?pagina={{palabras.next_page_number}} ">Siguiente<span class="fi-sheriff-badge large"></span></h4></a>
+        <h4><a href="/diccionario/?pagina={{palabras.next_page_number}} ">Siguiente<span class="fi-arrow-right large"></span></h4></a>
         {%else%}
-        <h4>Siguiente<span class="fi-sheriff-badge large"></span></h4>
+        <h4>Siguiente<span class="fi-arrow-right large"></span></h4>
         {%endif%}
       </div>
     </section>

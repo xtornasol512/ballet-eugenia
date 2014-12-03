@@ -1,7 +1,9 @@
+{% extends "block/base.html" %}
+
 Lista de posts
 <br>
 {%if post%}
-Detalle de la post {{post.titulo}}
+Detalle de la post {% block title %}{{post.titulo}}{% endblock title %}
 {%else%}
 Post no encontrada
 {%endif%}
