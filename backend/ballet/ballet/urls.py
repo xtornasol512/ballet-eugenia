@@ -4,6 +4,7 @@ from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'ballet.views.home', name='home'),

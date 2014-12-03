@@ -1,0 +1,15 @@
+from django.contrib import admin
+from django_summernote.admin import SummernoteModelAdmin
+from usuarios.models import Grupo, Alumno
+
+
+class AlumnoEnLinea(admin.StackedInline):
+    model = Alumno
+    extra = 2
+
+class AdminGrupo(SummernoteModelAdmin):
+	model = Grupo
+	inlines=[AlumnoEnLinea,]
+
+admin.site.register(Grupo, AdminGrupo)
+admin.site.register(Alumno)

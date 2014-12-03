@@ -2,6 +2,11 @@
 from django.db import models
 from django.db.models.signals import post_save
 from actions import Normalizador
+from usuarios.models import Alumno
+
+import mandrill
+ 
+API_KEY = 'Db9t7n5kJHIrJLw5wXyuJg'
 
 class Aviso(models.Model):
     titulo = models.CharField(max_length=225)
@@ -31,6 +36,24 @@ def update_UrlAviso(sender, instance, **kwargs):
         aviso.aviso = instance
         aviso.url = urlNormal
         aviso.save()
+    #  . . . . . . . envio de avisos por correo
+    #lista de correos (complementar a correos no repetidos despues)
+    alumnos= Alumno.objects.filter(activo=True).exclude(email=None)
+    para=[]
+    for alum in alumnos:
+        para.append({"email":alum.email})
+
+    #enviar el correo
+    mandrill_client = mandrill.Mandrill(API_KEY)
+
+    message = {
+        "html": instance.contenido,
+        "subject": instance.titulo,
+        "from_email": "genny@ballet-eugenia.com",
+        "from_name": "Miss Gennyta",
+        "to": para
+    }
+    result = mandrill_client.messages.send(message=message, async=False)
 
 class UrlAviso(models.Model):
     aviso = models.ForeignKey('Aviso')

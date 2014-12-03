@@ -2,17 +2,20 @@
 from django.db import models
 from django.db.models.signals import post_save
 from actions import Normalizador
+from usuarios.models import Alumno as Usuario
 from django.contrib.auth.models import User
 
 
 class Perfil(models.Model):
-    usuario=models.ForeignKey(User)
-    biografia=models.TextField()
-    nombre=models.CharField(max_length=255)
-    domicilio=models.TextField()
-    imagen=models.ImageField(upload_to='perfiles/perfil')
-    edad = models.CharField(max_length=2)
-    genero = models.ForeignKey('Genero')
+    usuario=models.ForeignKey(Usuario)
+    biografia=models.TextField(blank=True, null=True)
+    domicilio=models.TextField(blank=True, null=True)
+    imagen=models.ImageField(upload_to='perfiles/perfil', blank=True, null=True)
+    edad = models.CharField(max_length=2, blank=True, null=True)
+    genero = models.ForeignKey('Genero', blank=True, null=True)
+    twitter = models.URLField(max_length=200, blank=True, null=True)
+    facebook = models.URLField(max_length=200, blank=True, null=True)
+    editable = models.BooleanField(default=True)
     def __unicode__(self):
         return self.user
 
