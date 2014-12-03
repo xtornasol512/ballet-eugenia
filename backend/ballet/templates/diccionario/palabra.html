@@ -1,8 +1,8 @@
 {% extends "block/base.html" %}
 {% block contenido %}
 {%if palabra%}
-    <header>
-      <div class="row">
+    <header class="padding-top">
+      <div class="row padding-top">
         <div class="small-12 centered columns text-center">
           <h1>{{palabra.titulo}}</h1>
           <h4>Tags: {%for tag in palabra.tags.all%}
@@ -31,7 +31,7 @@
           <h2>{{palabra.titulo}}</h2>
           {{palabra.contenido|safe}}
           <p class="text-center"><img src="{{MEDIA_URL}}{{palabra.imagen}}" alt="Imagen de {{palabra.titulo}}"></p>
-          <p> {%for tag in palabra.tags.all%}
+          <p>Tags: {%for tag in palabra.tags.all%}
             <a href="/diccionario/tag/{{tag}}">{{tag}}</a>,
           {%endfor%}</p>
         </article>
@@ -59,10 +59,10 @@
           </section>
       <section class="row">
             <div class="small-6 columns Keyword">
-                <a class="" href="#before"><h4><span class="fi-sheriff-badge large"></span>Anterior</h4></a>
+                <a class="" href="#before"><h4><span class="fi-arrow-left large"></span>Anterior</h4></a>
             </div>
             <div class="small-6 columns Keyword text-right">
-                <a class="" href="#next"><h4>Siguiente<span class="fi-sheriff-badge large"></span></h4></a>
+                <a class="" href="#next"><h4>Siguiente<span class="fi-arrow-right large"></span></h4></a>
             </div>
         </section>
     </section>

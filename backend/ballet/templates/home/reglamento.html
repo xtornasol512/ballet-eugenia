@@ -1,1 +1,53 @@
-reglamento
+{% extends "block/base.html" %}
+{% block title %}Reglamento de la Academia{% endblock title %}
+{% block contenido %}
+<header class="padding-top">
+  <div class="row padding-top">
+    <div class="small-12 centered columns text-center">
+      <h1>Reglamento</h1>
+      <p>De la Academia de Ballet Eugenia</p>
+      <img width="120" src="{{STATIC_URL}}img/logos/logo_academia_eugenia_150x137.png" alt="Área Especial para Alumnas de la Academia de Ballet Eugenia">
+  </div>
+</div>
+</header>
+    <!-- EndHeader-->
+    <!-- Contenido-->
+    <section>
+      
+      <section class="row padding-top">
+        <article class="small-12 centered columns text-center ">
+            
+            <h2 class="TituloGrande">REGLAMENTO</h2>
+            <p><strong class="blue">CUOTAS Y PAGOS.</strong> Los pagos de inscripción y mensualidades deberán hacerse en la sala de recepción, presentando la tarjeta de pagos, cubriendo los meses de septiembre a julio en los primeros días del mes en curso. Se cobrará un recargo de $50.00 POR MES ATRASADO.</p>
+            <p><strong class="pink">LAS AUSENCIAS PROLONGADAS NO EXIMEN EL PAGO COMPLETO DE LAS MENSUALIDADES.</strong>En caso de abandono de las clases (8 clases o más) sin previa justificación por escrito la alumna será dada de baja. En caso de que desee continuar, deberá pagar los adeudos pendientes.</p>
+            <p><strong class="blue">ASISTENCIAS Y HORARIOS.</strong> La puntualidad y asistencia son de vital importancia para que las niñas aprovechen al máximo los servicios que ofrecemos. En caso de tener que ausentarse por más de una semana debe de justificar la ausencia y la duración de la misma por escrito para tenerlas en cuenta y que no pierdan su lugar.</p>
+            <p>Las alumnas deberán presentarse de 5 a 10 minutos antes de su clase y deberán recogerlos a la hora en punto de su salida. <strong class="pink">NO NOS HAREMOS RESPONSABLES DE LAS ALUMNAS FUERA DE LOS HORARIOS ESTABLECIDOS.</strong></p>
+            <p><strong class="blue">PRESENTACIONES Y ENSAYOS.</strong> Está programada una presentación anual en la que las alumnas deben participar para que los padres de familia puedan observar el trabajo que se ha realizado en el año.</p>
+            <p><strong class="pink">LOS PADRES SE COMPROMETEN A:</strong></p>
+            <ul class="no-bullet text-left">
+                <li>Proporcionar el vestuario necesario tanto para sus clases regulares como para la presentación anual.</li>
+                <li>Cooperar con la cuota para la presentación anual. Esta dependerá del costo del local, se les informará con tiempo y les dará derecho a 5 boletos de entrada</li>
+                <li>Evitar faltas de asistencia sin verdadera justificación, tanto para las clases como para los ensayos que se programen.</li>
+                <li>Es de suma importancia que en casa se reconozca el valor de estas actividades y se les de el apoyo necesario ya que constituyen experiencias invaluables para el desarrollo de la seguridad y autoestima de las alumnas, al poder demostrar las habilidades que van dominando.</li>
+            </ul>
+            <p><strong class="blue">EN CASA.</strong> Se tendrá cuidado de que las niñas:</p>
+            <ul class="no-bullet text-left">
+                <li>Tengan una alimentación balanceada, evitando el consumo de alimentos poco nutritivos.</li>
+                <li>Cuidarán que las alumnas se presenten con el <span class="pink">uniforme completo y limpio, y peinadas con el cabello recogido.</span></li>
+                <li>No permitir que traigan objetos innecesarios, anillos, pulseras, cadenas, aretes grandes ni otro adorno; así mismo están prohibidos los juguetes, celulares, relojes, dinero, botellas de agua, etc.</li>
+                <li>Las pequeñas deberán entrar únicamente con sus zapatillas de ballet y un suéter en la mano. Las mayores pueden traer un maletín con sus objetos personales, siempre respetando las indicaciones anteriores.</li>                
+            </ul>
+            <p><strong class="pink">ENSEÑAR A LOS PEQUEÑOS A CUIDAR DE SU ASEO PERSONAL, A PROCURAR UNA BUENA PRESENTACIÓN DIARIA Y A RESPETAR EL HORARIO Y EL REGLAMENTO DE LAS INSTITUCIONES A LAS QUE PERTENECEN SON PRINCIPIOS BÁSICOS PARA EL BUEN DESARROLLO DE SU PERSONALIDAD.</strong></p>
+           
+        </article>
+        <article class="small-12 medium-6 medium-centered columns text-center">
+            <a href="{{STATIC_URL}}docs/reglamento.pdf" class="button round expand">Descarga el Reglamento</a>
+        </article>
+        
+      </section>
+      
+        <section class="row">
+            
+        </section>
+    </section>
+{% endblock contenido %}

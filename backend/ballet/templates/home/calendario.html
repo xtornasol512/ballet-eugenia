@@ -1,0 +1,26 @@
+{% extends "block/base.html" %}
+{% block title %}Calendario de la Academia{% endblock title %}
+{% block contenido %}
+<header class="padding-top">
+  <div class="row padding-top">
+    <div class="small-12 centered columns text-center">
+      <h1>Calendario</h1>
+      <p>De la Academia de Ballet Eugenia</p>
+      <img width="120" src="{{STATIC_URL}}img/logos/logo_academia_eugenia_150x137.png" alt="Área Especial para Alumnas de la Academia de Ballet Eugenia">
+  </div>
+</div>
+</header>
+<section>
+    <div class="row">
+        <div class="small-12 columns text-center">
+            <p><strong>Conoce nuestro Calendario 2015</strong></p>
+            <img src="{{STATIC_URL}}docs/calendario.png" alt="Calendario de Academia de Ballet Eugenia">
+            <div class="row padding-top">
+                <div class="small-10 small-centered medium-6 medium-centered large-5 large-centered columns">
+                    <a class="button round expand" href="{{STATIC_URL}}docs/calendario2015.pdf">Descarga el Calendario</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock contenido %}

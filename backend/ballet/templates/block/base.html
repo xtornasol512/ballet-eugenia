@@ -52,7 +52,7 @@
 <nav class="bg-white fixed">
     <div class="row">
         <div class="small-8 medium-2 large-2 columns menu-padding">
-            <h4 class="inline"><a href="/" title="Home"><img width="50px" src="{{STATIC_URL}}img/logos/logo_academia_eugenia_150x137.png" alt="Academia de Ballet Eugenia"></a>  <a class="nav-movil show-for-small-only" href="/" title="Home"><span class="show-for-medium-up">Academia de </span>Ballet Eugenia</a></h4>
+            <h4 class="inline"><a href="/" title="Home"><img width="70px" src="{{STATIC_URL}}img/logos/logo_academia_eugenia_150x137.png" alt="Academia de Ballet Eugenia"></a>  <a class="nav-movil show-for-small-only" href="/" title="Home">Ballet Eugenia</a></h4>
         </div>
         
         <div class="small-4 medium-10 large-10 columns menu-padding">
@@ -60,29 +60,42 @@
                 <a href="#" data-reveal-id="menuModal" title="Menu"><i class="fi-list medium nav-menu"></i></a>
             </p>
             <p class="text-right hide-for-small-only nav-movil">
+                <a href="/academia" class="green mr" data-dropdown="academiaHover" data-options="is_hover:true">ACADEMIA</a>
                 <a href="/diccionario" class="yellow mr">DICCIONARIO</a>
-                <a href="/contacto" class="orange mr">CONTACTO</a>
                 <a href="/cultura" class="blue mr">CULTURA</a>
-                <a href="/avisos" class="green mr" target="_blank">AVISOS</a>
-                <a href="/login" class="button round success tiny"><strong>LOGIN</strong></a>
+                <a href="/contacto" class="orange mr">CONTACTO</a>
+                {% if admin %}
+                  <a href="">Administrador</a>
+                {% elif usuario%}
+                  Usuarios
+                {% else %}
+                  <a href="/login" class="button round success tiny"><strong>LOGIN</strong></a>
+                {% endif %}
             </p>
+            <ul id="academiaHover" class="f-dropdown" data-dropdown-content>
+                  <li><a href="/academia">Acerca de la Academia</a></li>
+                  <li><a href="/missgennyta">Miss Gennyta</a></li>
+                  <li><a href="/reglamento">Reglamento</a></li>
+                  <li><a href="/calendario">Calendario</a></li>
+                </ul>
         
         </div>
         
     </div>
 </nav>
+
 <div id="menuModal" class="reveal-modal small" data-reveal>
     <h4 class="text-center">ACADEMIA</h4>
     <nav>
         <ul id="menu-movil" class="no-bullet text-center">
             <li><a href="/"><i class="icon-home small"></i>HOME</a></li>
-            <li><a href="/lo-que-hacemos" class="blue"><i class="icon-html5 small"></i>DICCIONARIO</a></li>
-            <li><a href="/nuestro-trabajo"><i class="icon-github small"></i>CONTACTO</a></li>
-            <li><a href="/team"><i class="icon-file-xml small"></i>CULTURA</a></li>
-            <li><a href="/blog" class="green" target="_blank"><i class="icon-lab small"></i>AVISOS</a></li>
+            <li><a href="/academia"><i class="icon-home small"></i>ACADEMIA</a></li>
+            <li><a href="/diccionario" class="blue"><i class="icon-html5 small"></i>DICCIONARIO</a></li>
+            <li><a href="/cultura"><i class="icon-file-xml small"></i>CULTURA</a></li>
+            <li><a href="/contacto"><i class="icon-github small"></i>CONTACTO</a></li>
         </ul>
         
-            <p class="text-center"><a href="/contacto" class="button round tiny success"><i class="icon-phone small"></i>LOGIN!</a></p>
+            <p class="text-center"><a href="/login" class="button round tiny success"><i class="icon-phone small"></i>LOGIN</a></p>
           
         
         
@@ -94,7 +107,7 @@
     {% block contenido %}{% endblock contenido %}
     <!-- Footer-->
     <footer>
-      <article id="newsletter" class="row">
+      <article id="newsletter" class="row padding-top">
         <div class="small-centered large-8 columns text-center">
           <div class="has-form">
           <div class="row collapse">
@@ -115,19 +128,19 @@
             <p>Más información, sugerencias o comentarios haznoslos saber en</p>
             <p>Nuestro email: <a href="mailto:genny@ballet-eugenia.com">genny@ballet-eugenia.com</a></p>
             <p>Estamos en la 1 Oriente #520 Colonia Centro, Tehuacán,Pue.</p>
-            <p><button>CONTACTO</button></p>
+            <p><button class="round">CONTACTO</button></p>
         </div>
       </article>
       <article id="end" class="row">
         <div class="small-12 columns text-center">
         <h3>Mapa de Sitio</h3>
         
-          <a href="#">Academia</a>
-          <a href="#">Login</a>
-          <a href="#">Cultura</a>  
-          <a href="#">Diccionario</a>
-          <a href="#">Reglamento</a>                  
-          <a href="#">Calendario</a>
+          <a href="/academia">Academia</a>
+          <a href="/login">Login</a>
+          <a href="/cultura">Cultura</a>  
+          <a href="/diccionario">Diccionario</a>
+          <a href="/reglamento">Reglamento</a>                  
+          <a href="/calendario">Calendario</a>
           
         </div>
         <div class="small-12 columns text-center ">
