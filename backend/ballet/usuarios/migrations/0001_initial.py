@@ -22,7 +22,7 @@ class Migration(SchemaMigration):
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('grupo', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['usuarios.Grupo'])),
             ('nombre', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('email', self.gf('django.db.models.fields.EmailField')(max_length=254)),
+            ('email', self.gf('django.db.models.fields.EmailField')(max_length=254, null=True, blank=True)),
             ('activo', self.gf('django.db.models.fields.BooleanField')(default=True)),
         ))
         db.send_create_signal(u'usuarios', ['Alumno'])
@@ -87,7 +87,7 @@ class Migration(SchemaMigration):
         u'usuarios.alumno': {
             'Meta': {'object_name': 'Alumno'},
             'activo': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
-            'email': ('django.db.models.fields.EmailField', [], {'max_length': '254'}),
+            'email': ('django.db.models.fields.EmailField', [], {'max_length': '254', 'null': 'True', 'blank': 'True'}),
             'grupo': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['usuarios.Grupo']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'nombre': ('django.db.models.fields.CharField', [], {'max_length': '255'})

@@ -22,9 +22,16 @@ class Migration(SchemaMigration):
         db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('aviso', models.ForeignKey(orm[u'avisos.aviso'], null=False)),
-            ('tag', models.ForeignKey(orm[u'tags.tag'], null=False))
+            ('tag', models.ForeignKey(orm[u'avisos.tag'], null=False))
         ))
         db.create_unique(m2m_table_name, ['aviso_id', 'tag_id'])
+
+        # Adding model 'Tag'
+        db.create_table(u'avisos_tag', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('tag', self.gf('django.db.models.fields.CharField')(max_length=50)),
+        ))
+        db.send_create_signal(u'avisos', ['Tag'])
 
         # Adding model 'UrlAviso'
         db.create_table(u'avisos_urlaviso', (
@@ -42,6 +49,9 @@ class Migration(SchemaMigration):
         # Removing M2M table for field tags on 'Aviso'
         db.delete_table(db.shorten_name(u'avisos_aviso_tags'))
 
+        # Deleting model 'Tag'
+        db.delete_table(u'avisos_tag')
+
         # Deleting model 'UrlAviso'
         db.delete_table(u'avisos_urlaviso')
 
@@ -52,19 +62,19 @@ class Migration(SchemaMigration):
             'contenido': ('django.db.models.fields.TextField', [], {}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'imagen': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'tags': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': u"orm['tags.Tag']", 'null': 'True', 'blank': 'True'}),
+            'tags': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': u"orm['avisos.Tag']", 'null': 'True', 'blank': 'True'}),
             'titulo': ('django.db.models.fields.CharField', [], {'max_length': '225'})
+        },
+        u'avisos.tag': {
+            'Meta': {'object_name': 'Tag'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'tag': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
         u'avisos.urlaviso': {
             'Meta': {'object_name': 'UrlAviso'},
             'aviso': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['avisos.Aviso']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'url': ('django.db.models.fields.CharField', [], {'max_length': '225'})
-        },
-        u'tags.tag': {
-            'Meta': {'object_name': 'Tag'},
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'tag': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         }
     }
 
