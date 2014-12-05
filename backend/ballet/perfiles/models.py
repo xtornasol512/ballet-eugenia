@@ -16,6 +16,9 @@ class Perfil(models.Model):
     twitter = models.URLField(max_length=200, blank=True, null=True)
     facebook = models.URLField(max_length=200, blank=True, null=True)
     editable = models.BooleanField(default=True)
+    class Meta:
+        verbose_name = "Perfil"
+        verbose_name_plural = "Perfiles"
     def __unicode__(self):
         return self.user
 

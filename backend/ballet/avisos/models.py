@@ -13,6 +13,7 @@ class Aviso(models.Model):
     contenido = models.TextField()
     tags = models.ManyToManyField("Tag", null=True, blank=True)
     imagen = models.ImageField(upload_to='items/avisos', blank=True, null=True)
+    vigencia = models.DateField(blank=True, null=True)
     def __unicode__(self):
         return self.titulo
 
