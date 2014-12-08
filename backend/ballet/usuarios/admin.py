@@ -7,7 +7,7 @@ class AlumnoEnLinea(admin.StackedInline):
     model = Alumno
     extra = 2
 
-class AdminGrupo(SummernoteModelAdmin):
+class AdminGrupo(admin.ModelAdmin):
 	model = Grupo
 	inlines=[AlumnoEnLinea,]
 

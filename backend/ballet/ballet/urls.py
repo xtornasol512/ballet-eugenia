@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'ballet.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^dashboard/', include(admin.site.urls)),
+    url(r'^administracion/', include(admin.site.urls)),
     url(r'^summernote/', include('django_summernote.urls')),
     url(r'^',include('home.urls')),
     #url(r'^perfiles/',include('perfiles.urls')),

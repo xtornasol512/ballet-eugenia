@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 
 class Grupo(models.Model):
-    literal = models.CharField(max_length=1, unique=True)
+    literal = models.CharField(max_length=1, unique=True, verbose_name='Grupo')
     descripcion = models.TextField()
     profesor = models.CharField(default="Miss Gennita", max_length=255)
     def __unicode__(self):
