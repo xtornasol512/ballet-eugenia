@@ -12,8 +12,8 @@ def index_view(request):
                           ctx,
                           context_instance=RequestContext(request))
 
-def missgennyta(request):
-    return render_to_response('home/missgennyta.html',
+def missgennita(request):
+    return render_to_response('home/missgennita.html',
                           context_instance=RequestContext(request))
 
 def contacto(request):

@@ -53,7 +53,7 @@ def update_UrlAviso(sender, instance, **kwargs):
             "html": instance.contenido,
             "subject": instance.titulo,
             "from_email": "genny@ballet-eugenia.com",
-            "from_name": "Miss Gennyta",
+            "from_name": "Miss Gennita",
             "to": para
         }
         result = mandrill_client.messages.send(message=message, async=False)
