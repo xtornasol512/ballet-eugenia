@@ -19,12 +19,16 @@ class Alumno(models.Model):
     activo = models.BooleanField(default=True)
     def __unicode__(self):
         return "%s - Grupo %s"%(self.nombre, self.grupo.literal)
+    def usuario(self):
+        usu=UsuarioAlumno.objects.get(alumno=self)
+        return usu.usuario.username
+
 
 class UsuarioAlumno(models.Model):
     usuario = models.ForeignKey(User)
     alumno = models.ForeignKey("Alumno")
     def __str__(self):
-        return self.alumno
+        return "%s"%self.alumno
 
 def update_UsuarioAlumno(sender, instance, **kwargs):
     if not UsuarioAlumno.objects.filter(alumno=instance).exists():

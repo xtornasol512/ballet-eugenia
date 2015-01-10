@@ -20,7 +20,7 @@ class Perfil(models.Model):
         verbose_name = "Perfil"
         verbose_name_plural = "Perfiles"
     def __unicode__(self):
-        return self.user
+        return "%s"%self.usuario
 
 class Genero(models.Model):
     genero=models.CharField(max_length=10)
@@ -45,7 +45,7 @@ class UrlPerfil(models.Model):
 
 def update_UrlPerfil(sender, instance, **kwargs):
     perfil = None
-    urlNormal = Normalizador(instance.nombre)
+    urlNormal = Normalizador(instance.usuario.usuario())
     try:
         perfil =UrlPerfil.objects.get(perfil=instance)
     except:
