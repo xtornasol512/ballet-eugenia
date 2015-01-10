@@ -6,7 +6,7 @@ class TelefonoEnLinea(admin.StackedInline):
     model = Telefono
     extra = 1
 
-class AdminPerfil(SummernoteModelAdmin):
+class AdminPerfil(admin.ModelAdmin):
     model = Perfil
     inlines=[TelefonoEnLinea,]
 
