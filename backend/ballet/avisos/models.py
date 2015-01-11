@@ -3,10 +3,11 @@ from django.db import models
 from django.db.models.signals import post_save
 from actions import Normalizador
 from usuarios.models import Alumno
+from ballet.settings import API_KEY
 
 import mandrill
  
-API_KEY = 'Db9t7n5kJHIrJLw5wXyuJg'
+
 
 class Aviso(models.Model):
     titulo = models.CharField(max_length=225)

@@ -7,5 +7,6 @@ urlpatterns=patterns('home.views',
 	url(r'^contacto/','contacto'),
     url(r'^academia/','academia'),
 	url(r'^reglamento/','reglamento'),
-	url(r'^login/','login'),
+	url(r'^login/','log_in'),
+	url(r'^logout/','log_out'),
 )

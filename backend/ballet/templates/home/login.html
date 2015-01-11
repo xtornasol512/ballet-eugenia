@@ -15,19 +15,20 @@
 
                 </div>
                 <div class="large-12 columns"> 
-                  <label class="text-left">Email
-                    <input type="email" name="email" placeholder="Pon aquí tu nombre Ej. tuemail@gmail.com" />
+                  <label class="text-left">Usuario
+                    <input type="text" name="username" placeholder="Pon aquí tu nombre" />
                   </label>
                   <label class="text-left">Password de la Academia
-                    <input type="password" name="name" placeholder="Password de la Academia" />
+                    <input type="password" name="password" placeholder="Password de la Academia" />
                   </label>
                 </div>
                 <div class="small-6 columns text-center">
-                  <button name="envComentario" class="expand round">Entrar</button>
+                  <button name="entrar" class="expand round">Entrar</button>
                 </div>
                 <div class="small-6 columns text-center">
                   <button href="/" class="expand success round">Volver</button>
                 </div>
+                {%if error%}<p>{{error}}</p>{%endif%}
                 <p>Si olvidaste tu password o esta incorrecto tu email, ponte en contacto con <a href="/contacto">genny@ballet-eugenia.com</a></p>
 
               </div>
