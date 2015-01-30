@@ -11,13 +11,13 @@ from django.http import HttpResponsePermanentRedirect as redirect301
 from actions2 import UrlUsuario
 
 def index_view(request):
-    usuario = None
-    ctx = { "user" : usuario }
+    
     return render_to_response('home/index.html',
-                          ctx,
                           context_instance=RequestContext(request))
 
 def missgennita(request):
+    #usuario = request.user
+    #ctx = { "user" : usuario }
     return render_to_response('home/missgennita.html',
                           context_instance=RequestContext(request))
 

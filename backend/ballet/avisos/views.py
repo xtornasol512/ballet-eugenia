@@ -17,7 +17,7 @@ def index_view(request):
     if avisos:
       avisos = Paginador(avisos, maximo_paginas, pagina)
     cxt = {'avisos':avisos, 'filtro':False}
-    Archivador('avisos/listaAvisos.html', 'avisos_index', cxt)
+    #Archivador('avisos/listaAvisos.html', 'avisos_index', cxt)
     return render_to_response('avisos/listaAvisos.html',
                           cxt,
                           context_instance=RequestContext(request))

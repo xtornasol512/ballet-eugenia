@@ -3,15 +3,22 @@
 {% block contenido %}
 <header class="login padding-top">
       <div class="row padding-top">
-        <div class="small-12 large-8 large-centered columns text-center">
+        <div class="small-12 large-6 large-centered columns text-center">
+          <h1>Inicio de Sesión</h1>
+          <img width="120" src="{{STATIC_URL}}img/logos/logo_academia_eugenia_150x137.png" alt="Área Especial para Alumnas de la Academia de Ballet Eugenia">
+          <p>Esta área es para las alumnas de la Academia de Ballet Eugenia, podrás ver tus Avisos y Crear un Perfil de la Academia de Ballet</p>
+        </div>
+      </div>
+</header>
+<section>
+<div class="row">
+        <div class="small-12 large-6 large-centered columns text-center">
           <form action="." method="post">{% csrf_token %}
             <fieldset>
-              <legend>Acceso a la Academia de Ballet Eugenia</legend>
+              
               <div class="row">
                 <div class="large-10 large-centered columns">
-                  <img width="120" src="{{STATIC_URL}}img/logos/logo_academia_eugenia_150x137.png" alt="Área Especial para Alumnas de la Academia de Ballet Eugenia">
-                  <h2>Academia de Ballet Eugenia</h2>
-                  <p>Esta área es para las alumnas de la Academia de Ballet Eugenia, podrás ver tus Avisos y Crear un Perfil de la Academia de Ballet</p>
+                  
 
                 </div>
                 <div class="large-12 columns"> 
@@ -21,6 +28,7 @@
                   <label class="text-left">Password de la Academia
                     <input type="password" name="password" placeholder="Password de la Academia" />
                   </label>
+                  {%if error%}<small class="error">{{error}}</small>{%endif%}
                 </div>
                 <div class="small-6 columns text-center">
                   <button name="entrar" class="expand round">Entrar</button>
@@ -28,7 +36,8 @@
                 <div class="small-6 columns text-center">
                   <button href="/" class="expand success round">Volver</button>
                 </div>
-                {%if error%}<p>{{error}}</p>{%endif%}
+
+                
                 <p>Si olvidaste tu password o esta incorrecto tu email, ponte en contacto con <a href="/contacto">genny@ballet-eugenia.com</a></p>
 
               </div>
@@ -36,6 +45,6 @@
 
           </form>
         </div>
-      </div>
-    </header>    
+      </div> 
+</section>    
 {% endblock contenido %}
