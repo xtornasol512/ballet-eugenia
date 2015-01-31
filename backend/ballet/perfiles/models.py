@@ -46,7 +46,6 @@ class UrlPerfil(models.Model):
 
 def update_UrlPerfil(sender, instance, **kwargs):
     perfil = None
-    urlNormal = Normalizador(instance.usuario.usuario())
     try:
         usuarioAlu=UsuarioAlumno.objects.get(alumno=instance.usuario)
     except :

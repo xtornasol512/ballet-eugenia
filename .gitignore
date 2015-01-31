@@ -8,3 +8,5 @@ front-end/temp/
 backend/ballet/db.sqlite3
 backend/ballet/media/
 
+#settings locales
+backend/ballet/ballet/local_settings.py
