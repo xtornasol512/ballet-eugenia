@@ -4,7 +4,8 @@ from diccionario.models import Palabra, Tag
 
 
 class AdminPalabra(SummernoteModelAdmin):
-	model = Palabra
+    model = Palabra
+    filter_horizontal =('tags',)
 
 
 admin.site.register(Palabra, AdminPalabra)

@@ -3,6 +3,9 @@ from django.db import models
 from django.db.models.signals import post_save
 from actions import Normalizador
 from django.contrib.auth.models import User
+from perfiles.models import Perfil, UrlPerfil
+
+alumPass = 'ballet.alumno'
 
 
 class Grupo(models.Model):
@@ -39,10 +42,37 @@ def update_UsuarioAlumno(sender, instance, **kwargs):
             aux="%s%s"%(nickNormalizado,count)
             count = count + 1
         nickNormalizado=aux
-        user = User.objects.create_user(nickNormalizado, instance.email, 'ballet.alumno')
+        user = User.objects.create_user(nickNormalizado, instance.email, alumPass)
         usAl=UsuarioAlumno()
         usAl.usuario=user
         usAl.alumno=instance
         usAl.save()
+        #creacion de perfil
+        perfil=Perfil()
+        perfil.usuario=user
+        perfil.save()
+        #envio de notificacion por correo
+        #pendiente de programar
+
+def update_UrlPerfil(sender, instance, **kwargs):
+    perfil = None
+    try:
+        usuarioAlu=UsuarioAlumno.objects.get(alumno=instance.usuario)
+    except :
+        usuarioAlu=None
+    if usuarioAlu:
+        urlNormal = Normalizador(usuarioAlu.usuario.username)
+        try:
+            perfil =UrlPerfil.objects.get(perfil=instance)
+        except:
+            pass
+        if perfil:
+            perfil.url = urlNormal
+            perfil.save()
+        else:
+            perfil = UrlPerfil()
+            perfil.perfil = instance
+            perfil.url = urlNormal
+            perfil.save()
 
 post_save.connect(update_UsuarioAlumno, sender=Alumno, dispatch_uid="update_usuario_alumno")

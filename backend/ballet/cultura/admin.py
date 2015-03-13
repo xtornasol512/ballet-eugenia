@@ -4,7 +4,8 @@ from cultura.models import Post, Tag
 
 
 class AdminPosts(SummernoteModelAdmin):
-	model = Post
+    model = Post
+    filter_horizontal =('tags',)
 
 
 admin.site.register(Post, AdminPosts)

@@ -2,13 +2,11 @@
 from django.db import models
 from django.db.models.signals import post_save
 from actions import Normalizador
-from usuarios.models import Alumno as Usuario
-from usuarios.models import UsuarioAlumno
 from django.contrib.auth.models import User
 
 
 class Perfil(models.Model):
-    usuario=models.ForeignKey(Usuario, unique=True)
+    usuario=models.ForeignKey(User, unique=True)
     biografia=models.TextField(blank=True, null=True)
     domicilio=models.TextField(blank=True, null=True)
     imagen=models.ImageField(upload_to='perfiles/perfil', blank=True, null=True)
@@ -46,12 +44,8 @@ class UrlPerfil(models.Model):
 
 def update_UrlPerfil(sender, instance, **kwargs):
     perfil = None
-    try:
-        usuarioAlu=UsuarioAlumno.objects.get(alumno=instance.usuario)
-    except :
-        usuarioAlu=None
-    if usuarioAlu:
-        urlNormal = Normalizador(usuarioAlu.usuario.username)
+    if True:
+        urlNormal = instance.usuario.username
         try:
             perfil =UrlPerfil.objects.get(perfil=instance)
         except:

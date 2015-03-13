@@ -14,6 +14,9 @@ class Migration(SchemaMigration):
             ('titulo', self.gf('django.db.models.fields.CharField')(max_length=225)),
             ('contenido', self.gf('django.db.models.fields.TextField')()),
             ('imagen', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
+            ('vigencia', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
+            ('borrador', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('archivo', self.gf('django.db.models.fields.files.FileField')(max_length=100, null=True, blank=True)),
         ))
         db.send_create_signal(u'avisos', ['Aviso'])
 
@@ -59,11 +62,14 @@ class Migration(SchemaMigration):
     models = {
         u'avisos.aviso': {
             'Meta': {'object_name': 'Aviso'},
+            'archivo': ('django.db.models.fields.files.FileField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
+            'borrador': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'contenido': ('django.db.models.fields.TextField', [], {}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'imagen': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'tags': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': u"orm['avisos.Tag']", 'null': 'True', 'blank': 'True'}),
-            'titulo': ('django.db.models.fields.CharField', [], {'max_length': '225'})
+            'titulo': ('django.db.models.fields.CharField', [], {'max_length': '225'}),
+            'vigencia': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'})
         },
         u'avisos.tag': {
             'Meta': {'object_name': 'Tag'},

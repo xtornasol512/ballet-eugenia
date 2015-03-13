@@ -6,7 +6,7 @@ from actions import Normalizador
 class Palabra(models.Model):
     titulo = models.CharField(max_length=225)
     contenido = models.TextField()
-    tags = models.ManyToManyField("Tag", null=True, blank=True)
+    tags = models.ManyToManyField("Tag", null=True, blank=True, verbose_name='Etiquetas')
     imagen = models.ImageField(upload_to='items/palabras', blank=True, null=True)
     def __unicode__(self):
         return self.titulo

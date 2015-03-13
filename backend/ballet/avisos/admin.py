@@ -4,7 +4,8 @@ from avisos.models import Aviso, Tag
 
 
 class AdminAvisos(SummernoteModelAdmin):
-	model = Aviso
+    model = Aviso
+    filter_horizontal =('tags',)
 
 
 admin.site.register(Aviso, AdminAvisos)
